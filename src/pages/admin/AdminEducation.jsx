@@ -17,7 +17,7 @@ export default function AdminEducation() {
   // Fetch all education
   const fetchEducation = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/education", {
+      const res = await axios.get("https://portfolio-backend-xmv2.onrender.com/api/education", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setEducations(res.data)
@@ -38,7 +38,7 @@ export default function AdminEducation() {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/education", form, {
+      await axios.post("https://portfolio-backend-xmv2.onrender.com/api/education", form, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setMessage("Education added successfully!")
@@ -54,7 +54,7 @@ export default function AdminEducation() {
   const handleDelete = async id => {
     if (!window.confirm("Are you sure you want to delete this education?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/education/${id}`, {
+      await axios.delete(`https://portfolio-backend-xmv2.onrender.com/api/education/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setMessage("Education deleted successfully!")
@@ -107,4 +107,5 @@ export default function AdminEducation() {
       </div>
     </div>
   )
+
 }
