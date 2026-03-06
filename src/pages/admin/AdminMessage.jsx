@@ -5,7 +5,7 @@ export default function AdminMessages() {
 
   const fetchMessages = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/contact", {
+    const res = await fetch("https://portfolio-backend-xmv2.onrender.com/api/contact", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -14,7 +14,7 @@ export default function AdminMessages() {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    await fetch(`http://localhost:5000/api/contact/${id}`, {
+    await fetch(`https://portfolio-backend-xmv2.onrender.com/api/contact/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -50,4 +50,5 @@ export default function AdminMessages() {
       </div>
     </div>
   );
+
 }
