@@ -12,7 +12,7 @@ export default function AdminProjects() {
   }, [])
 
   const fetchProjects = async () => {
-    const res = await axios.get("http://localhost:5000/api/projects")
+    const res = await axios.get("https://portfolio-backend-xmv2.onrender.com/api/projects")
     setProjects(res.data)
   }
 
@@ -22,7 +22,7 @@ export default function AdminProjects() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    await axios.post("http://localhost:5000/api/projects", {
+    await axios.post("https://portfolio-backend-xmv2.onrender.com/api/projects", {
       ...form,
       techStack: form.techStack.split(",").map(tag => tag.trim())
     })
@@ -49,7 +49,7 @@ export default function AdminProjects() {
           <li key={p._id} className="bg-white p-4 rounded shadow mb-2 flex justify-between items-center">
             <span>{p.title}</span>
             <button onClick={async () => {
-              await axios.delete(`http://localhost:5000/api/projects/${p._id}`)
+              await axios.delete(`https://portfolio-backend-xmv2.onrender.com/api/projects/${p._id}`)
               fetchProjects()
             }} className="text-red-500">Delete</button>
           </li>
@@ -57,4 +57,5 @@ export default function AdminProjects() {
       </ul>
     </div>
   )
+
 }
