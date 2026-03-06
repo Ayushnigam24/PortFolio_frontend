@@ -16,7 +16,7 @@ export default function AdminCertifications() {
   // Fetch certifications
   const fetchCertifications = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/certifications", {
+      const res = await axios.get("https://portfolio-backend-xmv2.onrender.com/api/certifications", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setCertifications(res.data)
@@ -34,7 +34,7 @@ export default function AdminCertifications() {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/certifications", form, {
+      await axios.post("https://portfolio-backend-xmv2.onrender.com/api/certifications", form, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setMessage("Certification added successfully!")
@@ -49,7 +49,7 @@ export default function AdminCertifications() {
   const handleDelete = async id => {
     if (!window.confirm("Are you sure you want to delete this certification?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/certifications/${id}`, {
+      await axios.delete(`https://portfolio-backend-xmv2.onrender.com/api/certifications/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setMessage("Certification deleted successfully!")
@@ -100,4 +100,5 @@ export default function AdminCertifications() {
       </div>
     </div>
   )
+
 }
