@@ -6,11 +6,11 @@ export default function Education() {
   const [certifications, setCertifications] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/education")
+    axios.get("https://portfolio-backend-xmv2.onrender.com/api/education")
       .then(res => setEducation(res.data))
       .catch(err => console.log(err))
 
-    axios.get("http://localhost:5000/api/certifications")
+    axios.get("https://portfolio-backend-xmv2.onrender.com/api/certifications")
       .then(res => setCertifications(res.data))
       .catch(err => console.log(err))
   }, [])
